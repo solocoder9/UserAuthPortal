@@ -22,7 +22,6 @@ public class RegistrationServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        
         String uName = req.getParameter("name");
         String uEmail = req.getParameter("email");
         String uPassword = req.getParameter("pass");
@@ -32,42 +31,39 @@ public class RegistrationServlet extends HttpServlet {
         String sqlQuery = "INSERT INTO user(name, email, password, contact_number) VALUES(?, ?, ?, ?)";
         
         RequestDispatcher dispatcher = req.getRequestDispatcher("registration.jsp");
+        
+        // Validation flags
+        boolean hasError = false;
 
         if (uName == null || uName.equals("")) {
-        	req.setAttribute("status", "invalidName");
-        	dispatcher = req.getRequestDispatcher("registration.jsp");
-        	dispatcher.forward(req, resp);
-        }
-        if (uEmail == null || uEmail.equals("")) {
-        	req.setAttribute("status", "invalidEmail");
-        	dispatcher = req.getRequestDispatcher("registration.jsp");
-        	dispatcher.forward(req, resp);
-        }
-        if (uPassword == null || uPassword.equals("")) {
-        	req.setAttribute("status", "invalidPassword");
-        	dispatcher = req.getRequestDispatcher("registration.jsp");
-        	dispatcher.forward(req, resp);
+            req.setAttribute("status", "invalidName");
+            hasError = true;
+        } else if (uEmail == null || uEmail.equals("")) {
+            req.setAttribute("status", "invalidEmail");
+            hasError = true;
+        } else if (uPassword == null || uPassword.equals("")) {
+            req.setAttribute("status", "invalidPassword");
+            hasError = true;
         } else if (!uPassword.equals(uConformPassword)) {
-        	req.setAttribute("status", "invalidConformPassword");
-        	dispatcher = req.getRequestDispatcher("registration.jsp");
-        	dispatcher.forward(req, resp);
-        }
-        if (uContact == null || uContact.equals("")) {
-        	req.setAttribute("status", "invalidContact");
-        	dispatcher = req.getRequestDispatcher("registration.jsp");
-        	dispatcher.forward(req, resp);
+            req.setAttribute("status", "invalidConformPassword");
+            hasError = true;
+        } else if (uContact == null || uContact.equals("")) {
+            req.setAttribute("status", "invalidContact");
+            hasError = true;
         } else if (uContact.length() != 10) {
-        	req.setAttribute("status", "invalidContactLength");
-        	dispatcher = req.getRequestDispatcher("registration.jsp");
-        	dispatcher.forward(req, resp);
+            req.setAttribute("status", "invalidContactLength");
+            hasError = true;
         }
-        
 
-        // Explicitly load the MySQL JDBC driver
+        // If there are validation errors, forward to the registration page
+        if (hasError) {
+            dispatcher.forward(req, resp);
+            return; // Stop further processing
+        }
+
+        // If no errors, proceed with database insertion
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-
-            // Try-with-resources for Connection and PreparedStatement
             try (Connection con = DriverManager.getConnection(url, username, password);
                  PreparedStatement pst = con.prepareStatement(sqlQuery)) {
 

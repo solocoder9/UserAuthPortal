@@ -24,3 +24,4 @@ Thumbs.db
 # Ignore any generated files
 *.map
 *.cache
+/build/
