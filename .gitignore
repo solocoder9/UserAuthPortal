@@ -1,0 +1,26 @@
+# Ignore compiled Java classes
+*.class
+
+# Ignore log files and databases
+*.log
+*.db
+
+# Ignore Eclipse-specific project files
+.classpath
+.project
+.settings/
+
+# Ignore node_modules (if you have any front-end dependencies)
+node_modules/
+
+# Ignore operating system files
+.DS_Store
+Thumbs.db
+
+# Ignore IDE and text editor settings
+.vscode/
+.idea/
+
+# Ignore any generated files
+*.map
+*.cache
