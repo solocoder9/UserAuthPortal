@@ -48,3 +48,58 @@ To run UserAuthPortal on your local machine, follow these steps:
 2. **Clone the Repository:**
    ```bash
    git clone https://github.com/yourusername/UserAuthPortal.git
+   ```
+
+3. **Import the Project into Eclipse:**
+   - Open Eclipse IDE.
+   - Select `File` > `Import` > `Existing Projects into Workspace`.
+   - Browse to the cloned repository directory and select the project.
+
+4. **Configure MySQL Database:**
+   - Ensure MySQL server is running.
+   - Create a database named `user_auth_db`:
+     ```sql
+     CREATE DATABASE user_auth_db;
+     ```
+
+5. **Modify Database Connection Details:**
+   - Open the appropriate JDBC configuration file (typically in the source code).
+   - Update the connection details (URL, username, password) to match your MySQL server configuration.
+
+6. **Deploy the Application:**
+   - Deploy the project on a Java web server (like Apache Tomcat).
+   - Start the server and access the application through your web browser at `http://localhost:8080/UserAuthPortal`.
+
+## 🚀 Usage  
+
+1. **Starting the Application:**
+   - Access the application in your web browser.
+
+2. **Registration:**
+   - Click on the “Register” link.
+   - Fill out the registration form with a unique email ID and password.
+   - Submit the form to create a new account.
+
+3. **Login:**
+   - Click on the “Login” link.
+   - Enter your registered email ID and password.
+   - Click “Login” to access your account.
+
+4. **Validation Messages:**
+   - The application will display validation messages for both client-side and server-side errors.
+   - Ensure that your input adheres to the specified format for successful registration and login.
+
+## 🤝 Contributing  
+
+Contributions to the UserAuthPortal project are welcome! To contribute:
+
+1. Fork the repository.
+2. Create your feature branch (`git checkout -b feature/YourFeature`).
+3. Commit your changes (`git commit -am 'Add some feature'`).
+4. Push to the branch (`git push origin feature/YourFeature`).
+5. Create a new Pull Request.
+
+## 📝 License  
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
