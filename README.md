@@ -47,7 +47,7 @@ To run UserAuthPortal on your local machine, follow these steps:
 
 2. **Clone the Repository:**
    ```bash
-   git clone https://github.com/yourusername/UserAuthPortal.git
+   git clone https://github.com/solocoder9/UserAuthPortal.git
    ```
 
 3. **Import the Project into Eclipse:**
