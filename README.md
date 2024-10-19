@@ -34,6 +34,7 @@ UserAuthPortal is a Java web application that allows users to register and log i
 - Servlets
 - JDBC (Java Database Connectivity)
 - MySQL
+- Apache Tomcat
 - Eclipse IDE
 
 ## 🛠️ Setup Instructions  
