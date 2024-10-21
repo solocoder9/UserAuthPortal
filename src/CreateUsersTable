@@ -1,0 +1,18 @@
+Create Users Table
+------------------
+mysql> create table user(id int auto_increment primary key,
+    -> name varchar(50) not null,
+    -> email varchar(50) not null,
+    -> password varchar(50) not null,
+    -> contact_number varchar(10) not null);
+
+mysql> desc user;
++----------------+-------------+------+-----+---------+----------------+
+| Field          | Type        | Null | Key | Default | Extra          |
++----------------+-------------+------+-----+---------+----------------+
+| id             | int         | NO   | PRI | NULL    | auto_increment |
+| name           | varchar(50) | NO   |     | NULL    |                |
+| email          | varchar(50) | NO   |     | NULL    |                |
+| password       | varchar(50) | NO   |     | NULL    |                |
+| contact_number | varchar(10) | NO   |     | NULL    |                |
++----------------+-------------+------+-----+---------+----------------+
