@@ -16,7 +16,7 @@ UserAuthPortal is a Java web application that allows users to register and log i
 1. **User Authentication:**
    - **Registration:** Allows new users to create an account with a unique email ID and password.
    - **Login:** Enables registered users to log in using their credentials.
-   - **Validation:** Implements both client-side (JavaScript) and server-side (Java) validation for registration and login.
+   - **Validation:** Implements both client-side (HTML) and server-side (Java) validation for registration and login.
 
 2. **Client-Side Validation:**
    - Ensures that user input is correctly formatted before being sent to the server.
